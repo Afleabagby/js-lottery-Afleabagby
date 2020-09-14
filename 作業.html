@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+// 用上面練習完成的 function 製作威力彩號碼產生器
+// 將隨機出的數字用 document.write() 顯示在網頁上
+// 威力彩規則
+
+// A 區 1~38 取 6 個數字
+// B 區 1~8 取 1 個數字
+
+
+
+// 都是從1 開始
+// 先寫一個取亂數的function
+function getRand(max, min){
+    return  Math.round(Math.random()*(max-min)) + min
+}
+
+let power = getRand(38, 1)
+let powers = []
+// 空陣列裡面丟入六個數字
+// 迴圈印出六個數字
+    for(let i=1;i<=6;i++){
+        //丟數字進陣列
+        powers.push(power)
+        while(powers.includes(power)){
+            // 當陣列裡包含數字，就加進去，再跑一次迴圈
+            power = getRand(38, 1)
+        }
+    }
+document.write(`A區的開獎號碼是 ${powers} <br>`)
+document.write(`B區的開獎號碼是 ${getRand(1, 8)}`)
+
+// 先設陣列，用for去跑，判斷是否有重複
+// .indexOf
+// .includes
+
+// function getPowers(){
+//     let powers = []
+//     for(let i=0;i<6;i++){
+//     if(getPowers()!==powers.indexOf){
+//         powers.push(getPowers())
+//     }
+//     else{
+//         powers.replace(getPowers())
+//     }
+// }
+// }
+// document.write(getPowers())
+
+
+
+
+
+    </script>
+</body>
+</html>
